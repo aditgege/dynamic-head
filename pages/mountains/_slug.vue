@@ -19,12 +19,25 @@ export default {
   components: {
     SocialHead
   },
-  async asyncData({ params }) {
-    const mountain = await fetch(
-      `https://api.nuxtjs.dev/mountains/${params.slug}`
-    ).then((res) => res.json())
-    return { mountain }
+  data() {
+    return {
+      mountain: {}
+    }
   },
+
+  async fetch() {
+    const { slug } = this.$route.params
+    const response = await fetch(
+      `https://api.nuxtjs.dev/mountains/${slug}`
+    )
+    this.mountain = await response.json()
+  },
+  // async asyncData({ params }) {
+  //   const mountain = await fetch(
+  //     `https://api.nuxtjs.dev/mountains/${params.slug}`
+  //   ).then((res) => res.json())
+  //   return { mountain }
+  // },
   methods: {
     goBack() {
       return this.$router.go(-1)
