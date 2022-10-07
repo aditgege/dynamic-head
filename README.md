@@ -1,2 +1,1 @@
-# dynamic-head
-Created with CodeSandbox
+[Features Book - Meta Tags and SEO](https://nuxtjs.org/docs/2.x/features/meta-tags-seo)
