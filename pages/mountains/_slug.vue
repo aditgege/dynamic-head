@@ -14,7 +14,11 @@
   </article>
 </template>
 <script>
+import SocialHead from '~/components/SocialHead.vue'
 export default {
+  components: {
+    SocialHead
+  },
   async asyncData({ params }) {
     const mountain = await fetch(
       `https://api.nuxtjs.dev/mountains/${params.slug}`
