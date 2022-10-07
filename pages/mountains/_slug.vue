@@ -1,9 +1,9 @@
 <template>
   <article>
     <SocialHead
-      :title="mountain.title"
-      :description="mountain.description"
-      :image="mountain.image"
+      :title="title"
+      :description="description"
+      :image="image"
     />
     <h1>{{ mountain.title }}</h1>
     <section>
@@ -43,8 +43,21 @@ export default {
       return this.$router.go(-1)
     }
   },
+
+  computed: {
+    title() {
+      return this.mountain.title
+    },
+    description() {
+      return this.mountain.description
+    },
+    image() {
+      return this.mountain.image
+    }
+  },
   head() {
     return {
+      title: this.title,
       link: [
         {
           hid: 'canonical',
